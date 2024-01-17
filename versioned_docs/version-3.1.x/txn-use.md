@@ -79,7 +79,7 @@ Currently, [Pulsar transaction API](/api/admin/) is available in **Pulsar 2.8.0 
     PulsarClient client = PulsarClient.builder()
                     // Step 3: create a Pulsar client and enable transactions.
                     .enableTransaction(true)
-                    .serviceUrl(jct.serviceUrl)
+                    .serviceUrl(jct.serviceUrl).build();
 
             // Step 4: create three producers to produce messages to input and output topics.
             ProducerBuilder<String> producerBuilder = client.newProducer(Schema.STRING);
@@ -159,10 +159,10 @@ Currently, [Pulsar transaction API](/api/admin/) is available in **Pulsar 2.8.0 
     **Output**
 
     ```java
-    Receive transaction message: Hello Pulsar! count : 1
-    Receive transaction message: Hello Pulsar! count : 2
-    Receive transaction message: Hello Pulsar! count : 1
-    Receive transaction message: Hello Pulsar! count : 2
+    Receive transaction message: Hello Pulsar! outputTopicOne count : 0
+    Receive transaction message: Hello Pulsar! outputTopicOne count : 1
+    Receive transaction message: Hello Pulsar! outputTopicTwo count : 0
+    Receive transaction message: Hello Pulsar! outputTopicTwo count : 1
     ```
 
 ## Related topics
